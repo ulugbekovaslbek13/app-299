@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Weather App</title>
+
+<style>
+body {
+  background: #0f172a;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+  padding: 50px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  margin: auto;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #38bdf8;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌤 Weather Dashboard</h1>
+
+<div class="card">
+  <h2 id="city">Tashkent</h2>
+  <p id="temp">-- °C</p>
+  <p id="status">Loading...</p>
+
+  <button onclick="updateWeather()">Refresh</button>
+</div>
+
+<script>
+const cities = [
+  { name: "Tashkent", temp: 28, status: "Sunny ☀️" },
+  { name: "London", temp: 15, status: "Cloudy ☁️" },
+  { name: "Dubai", temp: 40, status: "Hot 🔥" },
+  { name: "Moscow", temp: 5, status: "Snow ❄️" }
+];
+
+function updateWeather() {
+  const random = cities[Math.floor(Math.random() * cities.length)];
+
+  document.getElementById("city").innerText = random.name;
+  document.getElementById("temp").innerText = random.temp + " °C";
+  document.getElementById("status").innerText = random.status;
+}
+
+// initial load
+updateWeather();
+</script>
+
+</body>
+</html>
